@@ -1,0 +1,26 @@
+{#{% load static %}#}
+{#{% load cache %}#}
+<!DOCTYPE html>
+	<head>
+	    <meta charset="UTF-8"/>
+	    <meta name="viewport" content="width=device-width"/>
+{#		<meta name="keywords" content="Kindle电子书,mobi电子书,epub电子书,azw3电子书,电子书永久免费下载,mobi,epub,azw3">#}
+{#		<meta name="description" content="极客学舍 永久免费的kindle电子书资源下载网站！一起分享阅读的乐趣！">#}
+		<script>
+	    var _hmt = _hmt || [];
+	    (function() {
+	      var hm = document.createElement("script");
+	      hm.src = "https://hm.baidu.com/hm.js?5500b01fec2987809d144eee60607564";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(hm, s);
+	    })();
+	    </script>
+		{% block header %}
+	    {% endblock %}
+	</head>
+
+	<body class="home blog custom-font-enabled">
+	    {% block body %}
+		{% endblock %}
+	</body>
+</html>

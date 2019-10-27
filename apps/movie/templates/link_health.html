@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>连接健康统计</title>
+</head>
+<body>
+	<div>
+		<p>本次检查时间:{{ date_str }}</p>
+		<p>失效连接数量:{{ invalid_link_list | length }}</p>
+		<p>本次检查数量:{{ total_check_link | length }}</p>
+	</div>
+	<div>
+		<table class="table" border='1'>
+			<thead>
+				<tr>
+					<th>书籍ID</th>
+					<th>书籍title</th>
+					<th>连接ID</th>
+					<th>网盘URL</th>
+					<th>网盘密码</th>
+					<th>网盘类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for link in invalid_link_list %}
+					<tr>
+						<td>{{ link.book.id }}</td>
+						<td>{{ link.book.title }}</td>
+						<td>{{ link.id }}</td>
+						<td>{{ link.link }}</td>
+						<td>{{ link.secret }}</td>
+						<td>{{ link.type }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

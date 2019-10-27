@@ -1,0 +1,39 @@
+{% extends 'html/base.html' %}
+{% load tags %}
+
+{% block header %}
+    <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+    <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:title" content="{{ SITE_NAME }}"/>
+    <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+    <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+    <meta property="og:site_name" content="{{ SITE_NAME }}"/>
+{% endblock %}
+{% block body %}
+		{% for book in book_list %}
+			<div>
+				<h3><a href="{% url "apps.eBook.BookDetailHtml" id=book.id %}">{{ book.title }}</a></h3>
+				<p>{{ book.description }}</p>
+			</div>
+		{% endfor %}
+        {% if is_paginated %}
+            {% load_pagination_info page_obj page_type tag_name %}
+        {% endif %}
+		<div>
+            {% if page_obj.has_previous and previous_url %}
+		        <div class="nav-next">
+			        <a href="{{ previous_url }}">
+		                <span class="meta-nav">&larr;</span>上一页
+		            </a>
+		        </div>
+		    {% endif %}
+			{% if page_obj.has_next  and next_url %}
+		        <div class="nav-previous">
+			        <a href="{{ next_url }}">下一页
+				        <span class="meta-nav">→</span>
+			        </a>
+		        </div>
+		    {% endif %}
+		</div>
+{% endblock %}

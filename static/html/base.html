@@ -1,0 +1,16 @@
+{% load static %}
+{% load cache %}
+{% load compress %}
+<!DOCTYPE html>
+	<head>
+	    <meta charset="UTF-8"/>
+	    <meta name="viewport" content="width=device-width"/>
+	    {% block header %}
+	    {% endblock %}
+	</head>
+
+	<body class="home blog custom-font-enabled">
+	    {% block body %}
+		{% endblock %}
+	</body>
+</html>

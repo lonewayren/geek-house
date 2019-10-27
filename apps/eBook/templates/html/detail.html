@@ -1,0 +1,29 @@
+{% extends 'html/base.html' %}
+{% load tags %}
+
+{% block header %}
+    <meta name="description" content="{{ book.description }}"/>
+    <meta name="keywords" content="{{ book.title }},Kindle电子书,mobi电子书,epub电子书,azw3电子书,电子书永久免费下载,mobi,epub,azw3"/>
+	<title>{{ book.title }} - 极客学舍</title>
+{% endblock %}
+{% block body %}
+		<div>
+			<h3>{{ book.title }}</h3>
+			<p>{{ book.description }}</p>
+		</div>
+		<div>
+			{% if book.id|add:-1 %}
+		        <div class="nav-next">
+			        <a href="{% url "apps.eBook.BookDetailHtml" id=book.id|add:-1 %}">
+		                <span class="meta-nav">&larr;</span>上一本
+		            </a>
+		        </div>
+			{% endif %}
+	        <div class="nav-previous">
+		        <a href="{% url "apps.eBook.BookDetailHtml" id=book.id|add:+1 %}">下一本
+			        <span class="meta-nav">→</span>
+		        </a>
+	        </div>
+		</div>
+
+{% endblock %}
