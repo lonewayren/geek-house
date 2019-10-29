@@ -31,7 +31,7 @@ sitemaps = {
     'book': BookDetailSiteMap,
 }
 
-favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
+favicon_view = RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)
 
 urlpatterns = [
     url(r'^favicon.ico$', favicon_view),
