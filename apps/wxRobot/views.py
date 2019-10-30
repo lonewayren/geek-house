@@ -13,8 +13,10 @@ from apps.account.utils import init_wx_user
 from apps.eBook.serializers import Book, Link, BookDetailSerializer
 from apps.wxRobot.utils import BookTitleFilter, KeyWordsFilter, unLog
 
+from django.conf import settings
+
 URL_MAP = {
-    'book': 'https://www.loneway.ren/book/list',
+    'book': 'https://%s/book/list' % (settings.DOMAIN,),
     'code': 'https://mp.weixin.qq.com/mp/homepage?__biz=MzUzMjcxNTkwOQ==&hid=4&sn=806dc6b1fa037fe52a792c46f06796e7',
     'school': 'https://mp.weixin.qq.com/mp/homepage?__biz=MzUzMjcxNTkwOQ==&hid=2&sn=432f425b477fc2dde622bd21eb0f24c0',
     'society': 'https://mp.weixin.qq.com/mp/homepage?__biz=MzUzMjcxNTkwOQ==&hid=3&sn=c2ebbe8aede82ad757d1631e99433f69',
@@ -128,8 +130,8 @@ def get_book_code(message, session):
         code = bookVerifyCodeUtils.gen_verify_code(user.id)
         title = "验证码"
         description = "%s" % code
-        cover = "https://www.loneway.ren/static/favicon.ico"
-        link = 'https://www.loneway.ren/book'
+        cover = "https://%s/static/favicon.ico" % (settings.DOMAIN,)
+        link = 'https://%s/book' % (settings.DOMAIN,)
         msg = [[title, description, cover, link]]
         msg = description
     except Exception as e:
@@ -198,7 +200,7 @@ def get_book_info(message, session):
             msg = '{book_id}对应的书籍不存在'.format(**{'book_id': book_id})
             return
         code = bookVerifyCodeUtils.gen_verify_code(user.id)
-        link = "https://www.loneway.ren/book/detail/%s?code=%s" % (book_id, code)
+        link = "https://%s/book/detail/%s?code=%s" % (settings.DOMAIN, book_id, code)
         msg = [[book.title, book.description, book.cover, link]]
     except Exception as e:
         msg = '获取验证码失败'
@@ -236,7 +238,7 @@ def search_book_info(message, session):
             msg = '{book_name}对应的书籍未找到'.format(**{'book_name': book_name})
             return
         code = bookVerifyCodeUtils.gen_verify_code(user.id)
-        link = "https://www.loneway.ren/book/detail/%s?code=%s" % (book.id, code)
+        link = "https://%s/book/detail/%s?code=%s" % (settings.DOMAIN, book.id, code)
         msg = [[book.title, book.description, book.cover, link], 'test']
     except Exception as e:
         msg = '获取验证码失败'
@@ -273,7 +275,7 @@ def search_book_empty(message, session):
             book_name = message.content
             search_manager.log_unhit_search(book_name, user)
             wait_member = search_manager.count_search(value=book_name)
-            msg = "您搜索的书籍《{book_name}》目前尚未收录，我们会尽快收录后通知您，目前有{wait_member}人搜索该书。您可以看看<a href='https://www.loneway.ren/book'>这里</a>有没有喜欢的书籍".format(**{'book_name': book_name, 'wait_member': wait_member})
+            msg = "您搜索的书籍《{book_name}》目前尚未收录，我们会尽快收录后通知您，目前有{wait_member}人搜索该书。您可以看看<a href='https://{domain}/book'>这里</a>有没有喜欢的书籍".format(**{'book_name': book_name, 'wait_member': wait_member, 'domain': settings.DOMAIN})
     except Exception as e:
         msg = '搜索失败'
         traceback.print_exc()

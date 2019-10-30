@@ -270,6 +270,8 @@ BAIDU_NOTIFY_URL_MB_WEEK = ''
 BAIDU_NOTIFY_URL_MB_DAY = ''
 BING_NOTIFY_URL_MB_DAY = ''
 
+DOMAIN = 'www.geekschool.club'
+
 try:
     from geekHouse.local import *
     print 'import local config success'
