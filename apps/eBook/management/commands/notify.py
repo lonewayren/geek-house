@@ -59,7 +59,8 @@ def notify(options):
             book_id_list.append(book_id)
     if not book_id_list:
         return
-    urls = [urljoin(settings.DOMAIN, reverse('apps.eBook.BookDetailHtml', kwargs={'id': book_id})) for book_id in book_id_list]
+    domain = "https://%s" % settings.DOMAIN
+    urls = [urljoin(domain, reverse('apps.eBook.BookDetailHtml', kwargs={'id': book_id})) for book_id in book_id_list]
     print urls
     if _type in ('pc', 'week', 'day'):
         SpiderNotify.baidu_notify(urls, base_url)
