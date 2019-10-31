@@ -22,8 +22,6 @@ class BookDetailSiteMap(Sitemap):
     def location(self, item):
         return reverse('apps.eBook.BookDetailHtml', kwargs={'id': item.id})
 
-print Site.objects.get_current().domain
-
 
 class SpiderNotify():
     def __init__(self):
