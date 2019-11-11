@@ -40,7 +40,7 @@ class MovieDetailSerializer(QueryFieldsMixin, serializers.ModelSerializer):
     class Meta:
         model = Movie
         read_only_fields = ('source_types', )
-        fields = ('source_types', 'id', 'title', 'author', 'cover', 'description', 'language', 'age', 'area', 'score', 'online_date', 'comments', 'category')
+        fields = ('source_types', 'id', 'title', 'author', 'cover', 'description', 'language', 'star', 'age', 'area', 'score', 'online_date', 'comments', 'category')
 
     def shortcut_create(self, raise_exception=True):
         self.is_valid(raise_exception=raise_exception)
