@@ -64,14 +64,15 @@ def unsubscribe(message, session):
 
 
 KEYWORDS = {
-    '字节跳动': 'GVXKDVN',
-    '海康威视': '3S5VAR',
-    '平安科技': '3X5BZ2',
-    '顺丰科技': '378069',
-    '搜狗': '<a href="https://app.mokahr.com/recommendation-apply/sogou-inc/3010?recommenderId=156390&hash=#/jobs?isCampusJob=1&page=1&keyword=&_k=57d305">内推链接</a>',
-    '小米': '<a href="https://app.mokahr.com/m/recommendation-apply/xiaomi/3527?sharePageId=9834&recommenderId=73550&hash=%23%2Frecommendation%2Fpage%2F9834">内推链接</a>',
-    '美团': '<a href="https://campus.meituan.com/bole/wechat?staffSsoId=2062479">内推链接</a>',
-    '学而思': '<a href="http://neitui.info.100tal.com/share_list/?_dt_no_comment=1&code=b12699bd151fb3996ce94402f4bc6b54">内推链接</a>',
+    # '字节跳动': 'GVXKDVN',
+    # '海康威视': '3S5VAR',
+    # '平安科技': '3X5BZ2',
+    # '顺丰科技': '378069',
+    '快手': '快手内推>_><a href="https://campus.kuaishou.cn/recruit/campus/e/#/campus/share/job-list/iKoC6XdPu8y1j2FVml0iDQ%3D%3D">点我</a>',
+    # '搜狗': '<a href="https://app.mokahr.com/recommendation-apply/sogou-inc/3010?recommenderId=156390&hash=#/jobs?isCampusJob=1&page=1&keyword=&_k=57d305">内推链接</a>',
+    # '小米': '<a href="https://app.mokahr.com/m/recommendation-apply/xiaomi/3527?sharePageId=9834&recommenderId=73550&hash=%23%2Frecommendation%2Fpage%2F9834">内推链接</a>',
+    # '美团': '<a href="https://campus.meituan.com/bole/wechat?staffSsoId=2062479">内推链接</a>',
+    # '学而思': '<a href="http://neitui.info.100tal.com/share_list/?_dt_no_comment=1&code=b12699bd151fb3996ce94402f4bc6b54">内推链接</a>',
 }
 
 
