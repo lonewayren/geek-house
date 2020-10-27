@@ -6,7 +6,7 @@ bs4==0.0.1
 certifi==2019.3.9
 cffi==1.12.3
 chardet==3.0.4
-cryptography==2.6.1
+cryptography==3.2
 Django==1.11.23
 django-filter==1.1.0
 django-jet==1.0.8
