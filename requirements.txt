@@ -11,7 +11,7 @@ Django==1.11.23
 django-filter==1.1.0
 django-jet==1.0.8
 django-redis==4.10.0
-djangorestframework==3.6.3
+djangorestframework==3.11.2
 djangorestframework-queryfields==1.0.0
 enum34==1.1.6
 et-xmlfile==1.0.1
